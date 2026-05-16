@@ -1,0 +1,60 @@
+---
+const links = [
+  { label: "Email", value: "joaopaulo@biggree.com", href: "mailto:joaopaulo@biggree.com?subject=Project%20brief" },
+  { label: "Upwork", value: "Profile", href: "#" }, // TODO: fill once Upwork profile is live
+  { label: "Malt", value: "Profile", href: "#" }, // TODO: fill once Malt profile is live
+  { label: "LinkedIn", value: "Profile", href: "#" }, // TODO: fill once LinkedIn handle confirmed
+  { label: "GitHub", value: "JoaoPaulo1980", href: "https://github.com/JoaoPaulo1980" }, // TODO: confirm handle
+];
+---
+
+<section id="contact" class="border-b border-ink-200 bg-white">
+  <div class="container-narrow py-20 sm:py-24">
+    <div class="grid gap-12 sm:grid-cols-2">
+      <div>
+        <h2 class="heading-2">Let's talk</h2>
+        <p class="lead mt-3">
+          Send a brief &mdash; project description, the job post, or a Loom
+          walkthrough. I'll come back within 24 hours with a scoped quote and a
+          milestone plan.
+        </p>
+        <p class="mt-6 text-ink-600">
+          Comfortable with briefs in English or Portuguese, written-first.
+          Rates in USD or EUR; happy to invoice in GBP via Revolut where it
+          fits your accounting.
+        </p>
+        <a
+          href="mailto:joaopaulo@biggree.com?subject=Project%20brief"
+          class="btn-primary mt-8"
+        >
+          joaopaulo@biggree.com
+          <span aria-hidden>&rarr;</span>
+        </a>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-500">
+          Find me elsewhere
+        </h3>
+        <dl class="mt-6 divide-y divide-ink-200 border-t border-ink-200">
+          {
+            links.map((l) => (
+              <div class="flex items-center justify-between py-4">
+                <dt class="text-sm font-medium text-ink-500">{l.label}</dt>
+                <dd>
+                  <a
+                    href={l.href}
+                    class="font-medium text-ink-900 hover:text-accent-600"
+                    target={l.href.startsWith("http") ? "_blank" : "_self"}
+                    rel={l.href.startsWith("http") ? "noopener noreferrer" : ""}
+                  >
+                    {l.value} ↗
+                  </a>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

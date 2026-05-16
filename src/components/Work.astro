@@ -1,0 +1,65 @@
+---
+const projects = [
+  {
+    title: "fastapi-stripe-starter",
+    tagline: "Open-source FastAPI MVP backend",
+    description:
+      "Reference codebase showing the shape of MVPs I deliver to early-stage SaaS clients. JWT auth, organizations + RBAC, Stripe Checkout, idempotent webhooks, and multi-tenant PostgreSQL via Row-Level Security. Runs locally with `docker compose up`.",
+    href: "https://github.com/JoaoPaulo1980/fastapi-stripe-starter",
+    stack: ["FastAPI", "PostgreSQL", "Stripe", "Docker", "Pytest"],
+  },
+  {
+    title: "scraper-pipeline-demo",
+    tagline: "Async scraping + ETL pipeline",
+    description:
+      "Template for resilient public-source scraping with retry, rate-limiting, and structured output. Uses books.toscrape.com as an ethically-safe demo source. Async httpx + selectolax parsing + Pydantic validation + PostgreSQL upsert + CSV export.",
+    href: "https://github.com/JoaoPaulo1980/scraper-pipeline-demo",
+    stack: ["Python", "httpx", "selectolax", "PostgreSQL", "Docker"],
+  },
+];
+---
+
+<section id="work" class="border-b border-ink-200 bg-white">
+  <div class="container-narrow py-20 sm:py-24">
+    <div class="mb-12 max-w-3xl">
+      <h2 class="heading-2">Recent work</h2>
+      <p class="lead mt-3">
+        Two open-source reference projects showing patterns I reuse across
+        client work. Read the code &mdash; judge whether the shape matches
+        what you need before we talk.
+      </p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        projects.map((p) => (
+          <a
+            href={p.href}
+            class="card group flex flex-col transition hover:border-ink-300 hover:shadow-md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-mono text-lg font-semibold text-ink-950 group-hover:text-accent-600">
+                  {p.title}
+                </h3>
+                <p class="mt-1 text-sm font-medium text-ink-500">{p.tagline}</p>
+              </div>
+              <span aria-hidden class="text-ink-300 transition group-hover:text-ink-500">
+                ↗
+              </span>
+            </div>
+            <p class="mt-4 text-ink-600">{p.description}</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              {p.stack.map((tag) => (
+                <span class="rounded border border-ink-200 bg-ink-50 px-2 py-0.5 text-xs font-medium text-ink-600">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

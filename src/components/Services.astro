@@ -1,0 +1,70 @@
+---
+const services = [
+  {
+    title: "FastAPI Backends",
+    pitch: "MVP backends with auth, organizations, Stripe billing, and multi-tenant data isolation. Production-shape, not toy code.",
+    deliverables: [
+      "JWT auth, organizations + RBAC",
+      "Stripe Checkout + webhook idempotency",
+      "PostgreSQL Row-Level Security",
+      "Docker setup + handover docs",
+    ],
+    timeline: "1–2 weeks",
+  },
+  {
+    title: "API Integrations",
+    pitch: "Stripe, HubSpot, Notion, OpenAI, custom REST or GraphQL. The hard part is idempotency and retry — I design for both.",
+    deliverables: [
+      "Signed + deduped webhook handling",
+      "Exponential backoff + ops endpoint",
+      "Fixture-tested mapping logic",
+      "One-page runbook for failures",
+    ],
+    timeline: "3–7 days",
+  },
+  {
+    title: "Scraping & ETL Pipelines",
+    pitch: "Public data sources extracted with httpx, Scrapy, or Playwright. Validated, deduplicated, ready for your warehouse.",
+    deliverables: [
+      "Async fetching, retry, rate-limited",
+      "Pydantic-validated records",
+      "PostgreSQL upsert + CSV output",
+      "Cron-ready Docker setup",
+    ],
+    timeline: "3–10 days",
+  },
+];
+---
+
+<section id="services" class="border-b border-ink-200 bg-ink-50">
+  <div class="container-narrow py-20 sm:py-24">
+    <div class="mb-12 max-w-3xl">
+      <h2 class="heading-2">What I do</h2>
+      <p class="lead mt-3">
+        Three things, done well. Each scoped fixed-price; no retainers, no
+        open-ended hourly contracts.
+      </p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((s) => (
+          <article class="card flex flex-col">
+            <h3 class="text-xl font-semibold text-ink-950">{s.title}</h3>
+            <p class="mt-3 text-ink-600">{s.pitch}</p>
+            <ul class="mt-5 space-y-2 text-sm text-ink-700">
+              {s.deliverables.map((d) => (
+                <li class="flex items-start gap-2">
+                  <span aria-hidden class="mt-1 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-400" />
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-6 text-sm font-medium text-ink-500">
+              Typical timeline: <span class="text-ink-900">{s.timeline}</span>
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
