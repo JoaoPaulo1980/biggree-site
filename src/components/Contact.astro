@@ -1,10 +1,15 @@
 ---
-const links = [
-  { label: "Email", value: "joaopaulo@biggree.com", href: "mailto:joaopaulo@biggree.com?subject=Project%20brief" },
-  { label: "Upwork", value: "Profile", href: "#" }, // TODO: fill once Upwork profile is live
-  { label: "Malt", value: "Profile", href: "#" }, // TODO: fill once Malt profile is live
-  { label: "LinkedIn", value: "Profile", href: "#" }, // TODO: fill once LinkedIn handle confirmed
-  { label: "GitHub", value: "JoaoPaulo1980", href: "https://github.com/JoaoPaulo1980" }, // TODO: confirm handle
+const activeLinks = [
+  {
+    label: "Email",
+    value: "joaopaulo@biggree.com",
+    href: "mailto:joaopaulo@biggree.com?subject=Project%20brief",
+  },
+  {
+    label: "GitHub",
+    value: "JoaoPaulo1980",
+    href: "https://github.com/JoaoPaulo1980",
+  },
 ];
 ---
 
@@ -37,7 +42,7 @@ const links = [
         </h3>
         <dl class="mt-6 divide-y divide-ink-200 border-t border-ink-200">
           {
-            links.map((l) => (
+            activeLinks.map((l) => (
               <div class="flex items-center justify-between py-4">
                 <dt class="text-sm font-medium text-ink-500">{l.label}</dt>
                 <dd>
@@ -54,6 +59,9 @@ const links = [
             ))
           }
         </dl>
+        <p class="mt-6 text-sm text-ink-500">
+          Upwork, Malt and LinkedIn profiles coming soon.
+        </p>
       </div>
     </div>
   </div>
